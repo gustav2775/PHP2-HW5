@@ -2,19 +2,21 @@
 
 namespace app\model;
 
-class Users extends ModelDb 
+class Users extends ModelDb
 {
     protected $id;
     protected $login;
     protected $pass;
     protected $hash;
 
-    protected $prop =[
-        'pass' =>false,
-        'hash' =>false
+    protected $prop = [
+        'pass' => false,
+        'hash' => false
     ];
-    
-    public static function getSql() {}
+
+    public static function getSql()
+    {
+    }
 
     public function __construct($login = null, $pass = null)
     {
@@ -25,5 +27,10 @@ class Users extends ModelDb
     public static function getTableName()
     {
         return 'users';
+    }
+
+    public function is_admin()
+    {
+        if ($this->login === "admin") return true;
     }
 }

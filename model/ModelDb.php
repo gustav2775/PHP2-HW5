@@ -33,7 +33,7 @@ abstract class ModelDb extends Model
         $sql = "SELECT * FROM {$tableName} WHERE hash = :hash";
         return Db::getInstance()->queryOne($sql, ['hash' => $hash]);
     }
-
+    
     public static function getAll()
     {
         $tableName = static::getTableName();
@@ -60,6 +60,13 @@ abstract class ModelDb extends Model
         }
 
         return Db::getInstance()->queryAll($sql, $params);
+    }
+
+    public static function getAllOrders($iduser)
+    {
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName} WHERE iduser = :iduser";
+        return Db::getInstance()->queryAll($sql, ['iduser' => $iduser]);
     }
 
     public function insert()

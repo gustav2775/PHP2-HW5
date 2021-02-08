@@ -1,4 +1,4 @@
-{% extends 'layouts/index.twig' %}
+
 {% block content %}
 	<div class="feedback">
 		{{resultLoader }}
@@ -28,15 +28,15 @@
 			{% endfor %}
 		</div>
 		<form class="feedbackForm" action="" method="post">
-			<input hidden type="text" name="idfeed" value="{{row['idfeed'] }}">
-			<input class='feedbacknameUser' type="text" name="nameUser" value="{{row['nameUser']}}" placeholder="Укажите имя" checked>
-			<textarea name="textarea" id="" cols="30" rows="10" placeholder="Укажите тескт комментария">{{row['textarea']}}</textarea>
-			{% if (row['action'] == "update") %}
+			<input hidden type="text" name="idfeed" value="{{row.idfeed }}">
+			<input class='feedbacknameUser' type="text" name="nameUser" value="{{row.nameUser}}" placeholder="Укажите имя" checked>
+			<textarea name="textarea" id="" cols="30" rows="10" placeholder="Укажите тескт комментария">{{row.textarea}}</textarea>
+			{% if (row.action == "update") %}
 				<input hidden type="text" name="action" value="update">
-				<input class="btnFeedbackForm" type="submit" value="{{ row['submit'] }}" name="">
+				<input class="btnFeedbackForm" type="submit" value="{{ row.submit }}" name="">
 			{% else %}
 				<input hidden type="text" name="action" value="insert">
-				<input class="btnFeedbackForm" type="submit" value="{{ row['submit'] }}" name="">
+				<input class="btnFeedbackForm" type="submit" value="{{ row.submit }}" name="">
 			{% endif %}
 		</form>
 	</div>

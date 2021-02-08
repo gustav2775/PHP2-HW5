@@ -1,7 +1,7 @@
-{% extends 'layouts/index.twig' %}
+{% extends "layouts/index.twig" %}
 {% block login %}
 	<div class="authorization">
-		<a href="/?page=orders">Заказы</a>
+		<a href="/?c=orders">Заказы</a>
 		{% if auth | raw %}
 			<p class="auth">
 				{{user.login}}
@@ -12,10 +12,12 @@
 		{% else %}
 			<form action="/?c=auth&a=login" method="post">
 				<input type="text" name="login"/>
-				<input type="text" name="pass"/>Save?<input type="checkbox" name="save"/>
+				<input type="text" name="pass"/>
+				Save?
+				<input type="checkbox" name="save"/>
 				<input type="submit" value="Войти"/>
 			</form>
-			<a href="/?page=registation" class="regBtn">Регистрация</a>
+			<a href="/?c=registation" class="regBtn">Регистрация</a>
 		{% endif %}
 	</div>
 {% endblock %}
