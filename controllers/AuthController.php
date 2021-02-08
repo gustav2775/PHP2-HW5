@@ -9,12 +9,10 @@ class AuthController  implements ILogin
 {
     public $auth;
     public $user;
-    public $is_admin;
 
     public function __construct()
     {
         $this->auth = $this->auth();
-        $this->is_admin = $this->is_admin();
     }
 
     public function auth()
@@ -33,10 +31,7 @@ class AuthController  implements ILogin
             }
         }
     }
-    public function is_admin(){
-       if($this->user['login'] === "admin") return true;
-    }
-
+    
     public function actionLogin()
     {
         $login = $_POST['login'];
