@@ -24,8 +24,7 @@ class Controller
         return $this->render::renderVeiws(LAYOUTS . $this->defaultLayouts, [
             'login' => $this->render::renderVeiws('login', [
                 'user' => $this->login->user,
-                'auth' => $this->login->auth,
-                'is_admin' => $this->login->is_admin,
+                'auth' => $this->login->auth
             ]),
             'menu' => $this->render::renderVeiws('menu', [
                 "menu" => $this->menu->menu

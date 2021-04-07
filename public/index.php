@@ -6,8 +6,6 @@ include_once "../config/config.php";
 
 include_once "../engine/Autoload.php";
 
-require_once '../vendor/autoload.php';
-
 use app\engine\{Autoload,DefaultRender, TwigRender};
 use app\controllers\{MenuController,AuthController};
 

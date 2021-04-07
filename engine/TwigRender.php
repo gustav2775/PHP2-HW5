@@ -1,18 +1,25 @@
 <?php
 
-namespace app\engine ;
+namespace app\engine;
+
+require_once '../vendor/autoload.php';
 
 use app\interfaces\IRender;
 
 class TwigRender implements IRender
 {
-    static public function renderVeiws($template, $params = [])
+    public static $twig;
+
+    public function __construct()
     {
         $loader = new \Twig\Loader\FilesystemLoader('../viewTwig/');
 
-        $twig = new \Twig\Environment($loader, [
-            'debug'=>true
+        self::$twig = new \Twig\Environment($loader, [
+            'debug' => true
         ]);
-        echo $twig->render($template.'.twig', $params);
+    }
+    public static function renderVeiws($template, $params = [])
+    {
+        echo static::$twig->render($template . '.twig', $params);
     }
 }
